@@ -8,7 +8,9 @@ defineEmits(["deleteA", "ajouterQte", "diminuerQte"])
     <v-list lines="one" id="liste">
         <v-row no-gutters>
             <v-col id="column1">
-                <img :src="aliment.photo" style="width: 100px; height: 100px;" />
+
+                <img v-if="aliment.photo!==''" :src="aliment.photo" style="width: 100px; height: 100px;" v-build:alt="aliment.nom"/>
+                <p v-if="aliment.photo===''">{{ aliment.nom }}</p>
             </v-col>
             <v-col id="column2">
                 <v-row no-gutters id="qte">
